@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+    {% if latest_posts %}
+    <ul>
+      {% for post in latest_posts %}
+        <li>
+          <a href="{% url 'microblog:detail' post.id %}">{{ post.post_text }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>No polls are availabe.</p>
+    {% endif %}
+  </body>
+</html>
