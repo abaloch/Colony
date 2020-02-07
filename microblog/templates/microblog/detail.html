@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Detail</title>
-  </head>
-  <body>
-    <h1>{{ post.post_text }}</h1>
-    <ul>
-      {% for reply in post.reply_set.all %}
-        <li>{{ reply.reply_text }}</li>
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+{% extends "microblog/base.html" %}
+{% block content %}
+<h2>{{ post.post_text }}</h2>
+<ul>
+  {% for reply in post.reply_set.all %}
+    <li>{{ reply.reply_text }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

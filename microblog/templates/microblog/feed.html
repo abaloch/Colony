@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    {% if latest_posts %}
-    <ul>
-      {% for post in latest_posts %}
-        <li>
-          <a href="{% url 'microblog:detail' post.id %}">{{ post.post_text }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-    {% else %}
-      <p>No polls are availabe.</p>
-    {% endif %}
-  </body>
-</html>
+{% extends "microblog/base.html" %}
+{% block content %}
+{% if latest_posts %}
+  {% for post in latest_posts %}
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class='mr2' href="#">{{ post.profile}}</a>
+          <small class="text-muted">{{ post.pub_date|date:"F d, Y" }}</small>
+        </div>
+        <p><a class='article-content' href="{% url 'microblog:detail' post.id %}">{{ post.post_text }}</a></p>
+      </div>
+    </article>
+  {% endfor %}
+{% endif %}
+{% endblock content %}

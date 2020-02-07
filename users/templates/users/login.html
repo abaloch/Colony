@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="form-section">
+      <form class="" method="POST">
+        {% csrf_token %}
+        <fieldset>
+          <legend>Log In</legend>
+          {{ form|crispy }}
+        </fieldset>
+        <div class="">
+          <button type="submit" name="button">Login</button>
+        </div>
+      </form>
+      <div class="">
+        <small>
+          Need an Account? <a href="{% url 'register' %}">Sign Up</a>
+        </small>
+      </div>
+    </div>
+  </body>
+</html>
