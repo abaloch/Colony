@@ -1,25 +1,28 @@
 <!DOCTYPE html>
+
 {% load crispy_forms_tags %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title></title>
   </head>
   <body>
-    <div class="form-section">
-      <form class="" method="POST">
+    <div class="content-section container">
+      <form method="POST">
         {% csrf_token %}
-        <fieldset>
-          <legend>Sign up to join the Colony</legend>
-          {{ form|crispy }}
+        <fieldset class="form-group">
+          <legend class='border-bottom mb-4'>Sign Up to Join the Colony</legend>
+          {{ u_form|crispy }}
         </fieldset>
-        <div class="">
-          <button type="submit" name="button">Sign Up</button>
+        <div class="form-group">
+          <button class='btn btn-outline-info' type="submit" name="button">Sign Up</button>
         </div>
       </form>
-      <div class="">
+      <div class="border-top pt-3">
         <small>
-          Have account? <a href="{% url 'login' %}">Sign In</a>
+          Have Account? <a href="{% url 'login' %}">Sign In</a>
         </small>
       </div>
     </div>

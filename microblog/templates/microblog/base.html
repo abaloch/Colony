@@ -7,9 +7,16 @@
 
     <style media="screen">
 
-      .posts{
-        padding: 5rem 1.5rem;
+      main{
+        margin-top: 5rem;
         text-align: center;
+      }
+
+      .content-section{
+        padding: 10px 20px;
+        border: 1px solid #dddddd;
+        border-radius: 3px;
+        margin-bottom: 20px;
       }
     </style>
     <!-- Bootstrap CSS -->
@@ -59,13 +66,12 @@
       </div>
     </nav>
     <main class='container'>
-      <div class="posts">
+      <div class="col-md-12">
         {% if messages %}
         {% for message in messages %}
             {{ message }}
         {% endfor %}
         {% endif %}
-
         {% block content %}{% endblock %}
       </div>
     </main>
