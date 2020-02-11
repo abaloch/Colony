@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 class Post(models.Model):
@@ -15,6 +16,11 @@ class Post(models.Model):
 
     def published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+
+    #this tells django what the url is for each individual post
+    def get_absolute_url(self):
+        return reverse('microblog:post-detail', kwargs={'pk': self.pk})
+
 
 class Reply(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
