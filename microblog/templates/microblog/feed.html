@@ -1,4 +1,5 @@
 {% extends "microblog/base.html" %}
+{% url 'microblog:home' as url}
 {% block content %}
 {% for post in latest_posts %}
   <article class="media content-section">
